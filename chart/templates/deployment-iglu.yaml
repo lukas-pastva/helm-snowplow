@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iglu-server
+  namespace: snowplow
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: iglu
+  template:
+    metadata:
+      labels:
+        app: iglu
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 3000
+        fsGroup: 2000
+      containers:
+        - name: iglu-server
+          image: snowplow/iglu-server:0.9.0
+          imagePullPolicy: IfNotPresent
+          command: ["/home/snowplow/bin/iglu-server", "--config", "/snowplow/config/iglu-server.hocon"]
+          env:
+            - name: JAVA_OPTS
+              value: -Dorg.slf4j.simpleLogger.defaultLogLevel=info
+          volumeMounts:
+            - name: iglu-config-volume
+              mountPath: /snowplow/config
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "1.5Gi"
+      volumes:
+        - name: iglu-config-volume
+          configMap:
+            name: iglu-configmap
+            items:
+              - key: iglu-server.hocon
+                path: iglu-server.hocon

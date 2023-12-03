@@ -1,0 +1,31 @@
+apiVersion: v1
+entries:
+  helm-snowplow:
+  - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/lukas-pastva/helm-snowplow
+        - name: Upstream Project
+          url: https://github.com/lukas-pastva/helm-snowplow
+      artifacthub.io/operator: "true"
+    apiVersion: v2
+    appVersion: v1.1
+    created: "2023-12-02T10:45:58.341422+01:00"
+    description: helm-snowplow Snowplow k8s chart
+    digest: 48ef945c0c5109b865ba370c40b1b4789785d846e8c2c94ba7ac0aee35d89e07
+    home: https://github.com/lukas-pastva/helm-snowplow
+    keywords:
+    - argocd
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@lukaspastva.sk
+      name: lukas-pastva
+    name: helm-snowplow
+    sources:
+    - https://github.com/lukas-pastva/helm-snowplow
+    type: application
+    urls:
+    - https://lukas-pastva.github.io/helm-snowplow/helm-snowplow-0.1.1.tgz
+    version: 0.1.1
+generated: "2023-12-02T10:45:58.340572+01:00"
