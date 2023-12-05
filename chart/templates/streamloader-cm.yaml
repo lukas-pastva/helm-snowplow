@@ -6,7 +6,7 @@ metadata:
 data:
   config.hocon: |
     {
-      "projectId": "<your-google-project-id>",
+      "projectId": "{{ .Values.googleProjectId }}",
       "loader": {
         "input": {
           "subscription": "spprefix-bq-loader-server-input"
@@ -77,7 +77,7 @@ data:
           {
             "connection": {
               "http": {
-                "apikey": "<your-iglu-api-key>",
+                "apikey": "{{ .Values.igluApiKey }}",
                 "uri": "http://iglu-server-service/api"
               }
             },

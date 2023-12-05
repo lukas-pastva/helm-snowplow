@@ -43,7 +43,7 @@ data:
           "strategy": {
             "pseudonymize": {
               "hashFunction": "MD5",
-              "salt": "<my-salt>"
+              "salt": "{{ .Values.enrichSalt }}"
             }
           }
         }
@@ -110,17 +110,17 @@ data:
       },
       "input": {
         "type": "PubSub",
-        "subscription": "projects/<your-project-id>/subscriptions/spprefix-enrich-server"
+        "subscription": "projects/{{ .Values.yourProjectId }}/subscriptions/spprefix-enrich-server"
       },
       "output": {
         "good": {
           "type": "PubSub",
-          "topic": "projects/<your-project-id>/topics/spprefix-enriched-topic",
+          "topic": "projects/{{ .Values.yourProjectId }}/topics/spprefix-enriched-topic",
           "attributes": [ "app_id", "event_name" ]
         },
         "bad": {
           "type": "PubSub",
-          "topic": "projects/<your-project-id>/topics/spprefix-bad-1-topic"
+          "topic": "projects/{{ .Values.yourProjectId }}/topics/spprefix-bad-1-topic"
         }
       },
       "assetsUpdatePeriod": "10080 minutes"
@@ -156,7 +156,7 @@ data:
           {
             "connection": {
               "http": {
-                "apikey": "<your-iglu-api-key>",
+                "apikey": "{{ .Values.igluApiKey }}",
                 "uri": "http://iglu-server-service/api"
               }
             },

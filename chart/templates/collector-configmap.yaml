@@ -69,7 +69,7 @@ data:
         useIpAddressAsPartitionKey = false
         sink {
           enabled = google-pub-sub
-          googleProjectId = "<your-project-id>"
+          googleProjectId = "{{ .Values.yourProjectId }}"
           backoffPolicy {
             minBackoff = 1000
             maxBackoff = 1000

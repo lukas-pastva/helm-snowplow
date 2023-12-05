@@ -42,7 +42,6 @@ spec:
               cpu: "350m"
             limits:
               memory: "1.5Gi"
-              cpu: 2
       volumes:
         - name: enrich-config-volume
           configMap:
