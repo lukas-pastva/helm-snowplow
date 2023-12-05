@@ -1,0 +1,90 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: streamloader-configmap
+  namespace: {{ .Release.Namespace }}
+data:
+  config.hocon: |
+    {
+      "projectId": "<your-google-project-id>",
+      "loader": {
+        "input": {
+          "subscription": "spprefix-bq-loader-server-input"
+        },
+        "output": {
+          "good": {
+            "datasetId": "spprefix_pipeline_db",
+            "tableId": "events"
+          },
+          "bad": {
+            "topic": "spprefix-bq-bad-rows-topic"
+          },
+          "types": {
+            "topic": "spprefix-bq-loader-server-types-topic"
+          },
+          "failedInserts": {
+            "topic": "spprefix-bq-loader-server-failed-inserts-topic"
+          }
+        }
+      },
+      "mutator": {
+        "input": {
+          "subscription": "spprefix-bq-loader-server-types"
+        },
+        "output": {
+          "good": "${loader.output.good}"
+        }
+      },
+      "repeater": {
+        "input": {
+          "subscription": "spprefix-bq-loader-server-failed-inserts"
+        },
+        "output": {
+          "good": "${loader.output.good}",
+          "deadLetters": {
+            "bucket": "gs://spprefix-bq-loader-dead-letter"
+          }
+        }
+      }
+    }
+  iglu-config.json: |
+    {
+      "schema": "iglu:com.snowplowanalytics.iglu/resolver-config/jsonschema/1-0-3",
+      "data": {
+        "cacheSize": 500,
+        "cacheTtl": 600,
+        "repositories": [
+          {
+            "connection": {
+              "http": {
+                "uri": "http://iglucentral.com"
+              }
+            },
+            "name": "Iglu Central",
+            "priority": 10,
+            "vendorPrefixes": []
+          },
+          {
+            "connection": {
+              "http": {
+                "uri": "http://mirror01.iglucentral.com"
+              }
+            },
+            "name": "Iglu Central - Mirror 01",
+            "priority": 20,
+            "vendorPrefixes": []
+          },
+          {
+            "connection": {
+              "http": {
+                "apikey": "<your-iglu-api-key>",
+                "uri": "http://iglu-server-service/api"
+              }
+            },
+            "name": "Iglu Server",
+            "priority": 0,
+            "vendorPrefixes": []
+          }
+        ]
+      }
+    }

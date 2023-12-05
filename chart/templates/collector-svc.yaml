@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: collector-server-service
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    cloud.google.com/backend-config: '{"default": "collector-backendconfig"}' # this is only required, if you run on GKE. See note in the step above.
+spec:
+  selector:
+    app: collector
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

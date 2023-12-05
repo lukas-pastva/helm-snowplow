@@ -1,0 +1,36 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: iglu-configmap
+  namespace: {{ .Release.Namespace }}
+data:
+  iglu-server.hocon: |
+    {
+      "repoServer": {
+        "interface": "0.0.0.0",
+        "port": 8080,
+        "threadPool": "cached",
+        "maxConnections": 2048
+      },
+      "database": {
+        "type": "postgres",
+        "host": "pgcluster-iglu-rw",
+        "port": 5432,
+        "dbname": "<iglu-database>",
+        "username": "<iglu-database-user>",
+        "password": "<your-postgres-password>",
+        "driver": "org.postgresql.Driver",
+        "pool": {
+          "type": "hikari",
+          "maximumPoolSize": 5
+        },
+        "connectionPool": {
+          "type": "fixed",
+          "size": 4
+        },
+        "transactionPool": "cached"
+      },
+      "debug": false,
+      "patchesAllowed": true,
+      "superApiKey": "<your-iglu-api-key>"
+    }
