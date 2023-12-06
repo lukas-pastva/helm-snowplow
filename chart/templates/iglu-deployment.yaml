@@ -12,7 +12,7 @@ spec:
     metadata:
       labels:
         app: iglu
-        checksum-config: {{ include (print $.Template.BasePath "/iglu-cm.yml") . | sha256sum | trimSuffix "-" | trunc 63 }}
+        checksum-config: {{ include (print $.Template.BasePath "/iglu-cm.yaml") . | sha256sum | trimSuffix "-" | trunc 63 }}
     spec:
       securityContext:
         runAsUser: 1000
