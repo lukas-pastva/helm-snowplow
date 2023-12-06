@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: streamloader
+        checksum-config: {{ include (print $.Template.BasePath "/streamloader-cm.yml") . | sha256sum | trimSuffix "-" | trunc 63 }}
     spec:
       containers:
         - name: streamloader-server
