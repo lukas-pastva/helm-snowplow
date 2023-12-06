@@ -14,7 +14,7 @@ data:
       },
       "database": {
         "type": "postgres",
-        "host": "pgcluster-iglu-rw",
+        "host": "iglu",
         "port": 5432,
         "dbname": "{{ .Values.igluDatabase }}",
         "username": "{{ .Values.igluDatabaseUser }}",

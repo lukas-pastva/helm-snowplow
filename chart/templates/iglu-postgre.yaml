@@ -1,0 +1,14 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: iglu
+  namespace: {{ .Release.Namespace }}
+spec:
+  instances: 1
+  primaryUpdateStrategy: unsupervised
+  storage:
+    size: 1Gi
+  monitoring:
+      enablePodMonitor: true
+  credentials:
+    secretName: iglu
