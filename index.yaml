@@ -11,7 +11,34 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v1.1
-    created: "2023-12-06T18:31:37.071772+01:00"
+    created: "2023-12-06T18:38:46.870785+01:00"
+    description: helm-snowplow Snowplow k8s chart
+    digest: aa28603bddf43c577b127e111d675173b9274dcf34521ee928f939edc5706d9d
+    home: https://github.com/lukas-pastva/helm-snowplow
+    keywords:
+    - argocd
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@lukaspastva.sk
+      name: lukas-pastva
+    name: helm-snowplow
+    sources:
+    - https://github.com/lukas-pastva/helm-snowplow
+    type: application
+    urls:
+    - https://lukas-pastva.github.io/helm-snowplow/helm-snowplow-0.1.15.tgz
+    version: 0.1.15
+  - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/lukas-pastva/helm-snowplow
+        - name: Upstream Project
+          url: https://github.com/lukas-pastva/helm-snowplow
+      artifacthub.io/operator: "true"
+    apiVersion: v2
+    appVersion: v1.1
+    created: "2023-12-06T18:38:46.870446+01:00"
     description: helm-snowplow Snowplow k8s chart
     digest: 25df71733b8f8dc526be7df3790630468e1e2938f1665ac2310ad95a37e20eb8
     home: https://github.com/lukas-pastva/helm-snowplow
@@ -38,7 +65,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v1.1
-    created: "2023-12-06T18:31:37.071421+01:00"
+    created: "2023-12-06T18:38:46.870099+01:00"
     description: helm-snowplow Snowplow k8s chart
     digest: 7028a6a4b2fe32d801765b31d10f607110bbd8416cdc16239551453379239998
     home: https://github.com/lukas-pastva/helm-snowplow
@@ -65,7 +92,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v1.1
-    created: "2023-12-06T18:31:37.071065+01:00"
+    created: "2023-12-06T18:38:46.86974+01:00"
     description: helm-snowplow Snowplow k8s chart
     digest: 08acfe6429dec912d1dcfb6c970a8596cea1fd52b04971394d602542835547dd
     home: https://github.com/lukas-pastva/helm-snowplow
@@ -92,7 +119,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v1.1
-    created: "2023-12-06T18:31:37.070713+01:00"
+    created: "2023-12-06T18:38:46.869397+01:00"
     description: helm-snowplow Snowplow k8s chart
     digest: fef73891567e28303b92df9b980fa9d1b86c8aae8ddff27026a394f1df787118
     home: https://github.com/lukas-pastva/helm-snowplow
@@ -119,7 +146,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v1.1
-    created: "2023-12-06T18:31:37.070331+01:00"
+    created: "2023-12-06T18:38:46.869044+01:00"
     description: helm-snowplow Snowplow k8s chart
     digest: e59c0c0feb2aa0fe624e2837ef25415f3822c52ff9555278e9c3bfe1c5f42c0e
     home: https://github.com/lukas-pastva/helm-snowplow
@@ -146,7 +173,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v1.1
-    created: "2023-12-06T18:31:37.074823+01:00"
+    created: "2023-12-06T18:38:46.874207+01:00"
     description: helm-snowplow Snowplow k8s chart
     digest: 3238deeacfca121eae42cc2575b75ad86eb2660b084dc8ca234979f1bc7279a0
     home: https://github.com/lukas-pastva/helm-snowplow
@@ -173,7 +200,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v1.1
-    created: "2023-12-06T18:31:37.074462+01:00"
+    created: "2023-12-06T18:38:46.87387+01:00"
     description: helm-snowplow Snowplow k8s chart
     digest: fc759e92b073a408e2e0f0386dbb3b880066a15dc01224557f0018a0620e06a6
     home: https://github.com/lukas-pastva/helm-snowplow
@@ -200,7 +227,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v1.1
-    created: "2023-12-06T18:31:37.073924+01:00"
+    created: "2023-12-06T18:38:46.873532+01:00"
     description: helm-snowplow Snowplow k8s chart
     digest: 64b5f7e7f2f3ae4fa6229c60ef24124188409694d0bb09edda2c7f2e463304d7
     home: https://github.com/lukas-pastva/helm-snowplow
@@ -227,7 +254,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v1.1
-    created: "2023-12-06T18:31:37.073426+01:00"
+    created: "2023-12-06T18:38:46.873183+01:00"
     description: helm-snowplow Snowplow k8s chart
     digest: b5cafdf49f8de5e1fe137ff535340ca36390c8e1385b50e02f674ff0a46d8003
     home: https://github.com/lukas-pastva/helm-snowplow
@@ -254,7 +281,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v1.1
-    created: "2023-12-06T18:31:37.073076+01:00"
+    created: "2023-12-06T18:38:46.872834+01:00"
     description: helm-snowplow Snowplow k8s chart
     digest: 8eb854e3fdab162c815aec950783f8141deda114c88001b7161af4780ef31bf0
     home: https://github.com/lukas-pastva/helm-snowplow
@@ -281,7 +308,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v1.1
-    created: "2023-12-06T18:31:37.072729+01:00"
+    created: "2023-12-06T18:38:46.872456+01:00"
     description: helm-snowplow Snowplow k8s chart
     digest: 7f5f21a8831ce1d5b6aa14c67903a37aa5fd8f63141b05f740b48491081e1345
     home: https://github.com/lukas-pastva/helm-snowplow
@@ -308,7 +335,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v1.1
-    created: "2023-12-06T18:31:37.072409+01:00"
+    created: "2023-12-06T18:38:46.871427+01:00"
     description: helm-snowplow Snowplow k8s chart
     digest: bdbc52e3836d00ae9691dd5caea99db0bf438a588878baccde3124e535d3baf3
     home: https://github.com/lukas-pastva/helm-snowplow
@@ -335,7 +362,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v1.1
-    created: "2023-12-06T18:31:37.072088+01:00"
+    created: "2023-12-06T18:38:46.871097+01:00"
     description: helm-snowplow Snowplow k8s chart
     digest: 0a27f1b140a973f07c157374dbddf51f0f206da508f220ffbb6eb87922d62980
     home: https://github.com/lukas-pastva/helm-snowplow
@@ -362,7 +389,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v1.1
-    created: "2023-12-06T18:31:37.069947+01:00"
+    created: "2023-12-06T18:38:46.868676+01:00"
     description: helm-snowplow Snowplow k8s chart
     digest: 6e729542bc0dc92207d0003cb4d6a9db4ab203c1368599adb00abb8c44014b35
     home: https://github.com/lukas-pastva/helm-snowplow
@@ -379,4 +406,4 @@ entries:
     urls:
     - https://lukas-pastva.github.io/helm-snowplow/helm-snowplow-0.1.1.tgz
     version: 0.1.1
-generated: "2023-12-06T18:31:37.068669+01:00"
+generated: "2023-12-06T18:38:46.868323+01:00"
