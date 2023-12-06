@@ -11,4 +11,4 @@ spec:
   monitoring:
       enablePodMonitor: true
   credentials:
-    secretName: iglu
+    secretName: iglu-postgre
