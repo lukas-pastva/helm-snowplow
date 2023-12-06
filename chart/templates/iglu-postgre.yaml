@@ -10,5 +10,11 @@ spec:
     size: 1Gi
   monitoring:
       enablePodMonitor: true
-  credentials:
-    secretName: iglu-postgre
+  superuserSecret:
+    name: iglu-postgre-master
+  bootstrap:
+    initdb:
+      database: {{ .Values.igluDatabase }}
+      owner: {{ .Values.igluDatabase }}
+      secret:
+        name: iglu-postgre-app
