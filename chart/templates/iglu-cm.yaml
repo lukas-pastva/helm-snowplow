@@ -17,8 +17,8 @@ data:
         "host": "{{ .Values.igluDatabaseHost }}",
         "port": 5432,
         "dbname": "{{ .Values.igluDatabase }}",
-        "username": "{{ .Values.igluDatabaseUser }}",
-        "password": "{{ .Values.igluDatabasePassword }}",
+        "username": "{{ .Values.igluDatabaseMasterUser }}",
+        "password": "{{ .Values.igluDatabaseMasterPassword }}",
         "driver": "org.postgresql.Driver",
         "pool": {
           "type": "hikari",
