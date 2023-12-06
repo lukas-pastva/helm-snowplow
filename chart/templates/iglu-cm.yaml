@@ -1,7 +1,7 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: iglu-configmap
+  name: iglu
   namespace: {{ .Release.Namespace }}
 data:
   iglu-server.hocon: |
@@ -14,7 +14,7 @@ data:
       },
       "database": {
         "type": "postgres",
-        "host": "iglu",
+        "host": "{{ .Values.igluDatabaseHost }}",
         "port": 5432,
         "dbname": "{{ .Values.igluDatabase }}",
         "username": "{{ .Values.igluDatabaseUser }}",

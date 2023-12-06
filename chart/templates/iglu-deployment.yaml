@@ -38,7 +38,7 @@ spec:
       volumes:
         - name: iglu-config-volume
           configMap:
-            name: iglu-configmap
+            name: iglu
             items:
               - key: iglu-server.hocon
                 path: iglu-server.hocon

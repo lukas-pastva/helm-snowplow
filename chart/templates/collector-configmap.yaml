@@ -93,7 +93,8 @@ data:
       }
     }
     akka {
-      loglevel = WARNING
+{{/*      loglevel = WARNING*/}}
+      loglevel = DEBUG
       loggers = ["akka.event.slf4j.Slf4jLogger"]
       http.server {
         remote-address-header = on
