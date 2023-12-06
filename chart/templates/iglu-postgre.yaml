@@ -4,6 +4,8 @@ metadata:
   name: iglu
   namespace: {{ .Release.Namespace }}
 spec:
+  description: "Iglu cluster"
+  imageName: ghcr.io/cloudnative-pg/postgresql:15.3
   instances: 1
   primaryUpdateStrategy: unsupervised
   storage:
