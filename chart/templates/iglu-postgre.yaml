@@ -9,7 +9,7 @@ spec:
   storage:
     size: 1Gi
   monitoring:
-      enablePodMonitor: true
+    enablePodMonitor: true
   superuserSecret:
     name: iglu-postgre-master
   bootstrap:
@@ -18,3 +18,7 @@ spec:
       owner: {{ .Values.igluDatabase }}
       secret:
         name: iglu-postgre-app
+  postgresql:
+    pg_hba:
+      - local all {{ .Values.igluDatabaseMasterUser }} md5
+      - local all {{ .Values.igluDatabaseUser }} md5
