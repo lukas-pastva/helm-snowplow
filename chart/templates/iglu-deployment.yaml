@@ -22,6 +22,10 @@ spec:
         - name: iglu-server
           image: snowplow/iglu-server:0.9.0
           imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
           command: ["/home/snowplow/bin/iglu-server", "--config", "/snowplow/config/iglu-server.hocon"]
           env:
             - name: JAVA_OPTS
