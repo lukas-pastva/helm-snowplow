@@ -1,58 +1,58 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: mutator-server
-  namespace: {{ .Release.Namespace }}
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: mutator
-  template:
-    metadata:
-      labels:
-        app: mutator
-    spec:
-      containers:
-        - name: mutator-server
-          image: snowplow/snowplow-bigquery-mutator:1.6.4
-          command:
-            - "/home/snowplow/bin/snowplow-bigquery-mutator"
-            - "listen"
-            - "--config"
-            - "/snowplow/config/config.hocon"
-            - "--resolver"
-            - "/snowplow/config/iglu-config.json"
-          imagePullPolicy: IfNotPresent
-          env:
-            - name: JAVA_OPTS
-              value: -Dorg.slf4j.simpleLogger.defaultLogLevel=info
-            - name: GOOGLE_APPLICATION_CREDENTIALS
-              value: /etc/gcp/sa_credentials.json
-          volumeMounts:
-            - name: mutator-config-volume
-              mountPath: /snowplow/config
-            - name: service-account-credentials-volume
-              mountPath: /etc/gcp
-              readOnly: true
-          resources:
-            requests:
-              memory: "128Mi"
-              cpu: "150m"
-            limits:
-              memory: "512Mi"
-      volumes:
-        - name: mutator-config-volume
-          configMap:
-            name: streamloader-configmap
-            items:
-              - key: iglu-config.json
-                path: iglu-config.json
-              - key: config.hocon
-                path: config.hocon
-        - name: service-account-credentials-volume
-          secret:
-            secretName: bqloader-serviceaccount-creds
-            items:
-              - key: sa_json
-                path: sa_credentials.json
+{{/*apiVersion: apps/v1*/}}
+{{/*kind: Deployment*/}}
+{{/*metadata:*/}}
+{{/*  name: mutator-server*/}}
+{{/*  namespace: {{ .Release.Namespace }}*/}}
+{{/*spec:*/}}
+{{/*  replicas: 1*/}}
+{{/*  selector:*/}}
+{{/*    matchLabels:*/}}
+{{/*      app: mutator*/}}
+{{/*  template:*/}}
+{{/*    metadata:*/}}
+{{/*      labels:*/}}
+{{/*        app: mutator*/}}
+{{/*    spec:*/}}
+{{/*      containers:*/}}
+{{/*        - name: mutator-server*/}}
+{{/*          image: snowplow/snowplow-bigquery-mutator:1.6.4*/}}
+{{/*          command:*/}}
+{{/*            - "/home/snowplow/bin/snowplow-bigquery-mutator"*/}}
+{{/*            - "listen"*/}}
+{{/*            - "--config"*/}}
+{{/*            - "/snowplow/config/config.hocon"*/}}
+{{/*            - "--resolver"*/}}
+{{/*            - "/snowplow/config/iglu-config.json"*/}}
+{{/*          imagePullPolicy: IfNotPresent*/}}
+{{/*          env:*/}}
+{{/*            - name: JAVA_OPTS*/}}
+{{/*              value: -Dorg.slf4j.simpleLogger.defaultLogLevel=info*/}}
+{{/*            - name: GOOGLE_APPLICATION_CREDENTIALS*/}}
+{{/*              value: /etc/gcp/sa_credentials.json*/}}
+{{/*          volumeMounts:*/}}
+{{/*            - name: mutator-config-volume*/}}
+{{/*              mountPath: /snowplow/config*/}}
+{{/*            - name: service-account-credentials-volume*/}}
+{{/*              mountPath: /etc/gcp*/}}
+{{/*              readOnly: true*/}}
+{{/*          resources:*/}}
+{{/*            requests:*/}}
+{{/*              memory: "128Mi"*/}}
+{{/*              cpu: "150m"*/}}
+{{/*            limits:*/}}
+{{/*              memory: "512Mi"*/}}
+{{/*      volumes:*/}}
+{{/*        - name: mutator-config-volume*/}}
+{{/*          configMap:*/}}
+{{/*            name: streamloader-configmap*/}}
+{{/*            items:*/}}
+{{/*              - key: iglu-config.json*/}}
+{{/*                path: iglu-config.json*/}}
+{{/*              - key: config.hocon*/}}
+{{/*                path: config.hocon*/}}
+{{/*        - name: service-account-credentials-volume*/}}
+{{/*          secret:*/}}
+{{/*            secretName: bqloader-serviceaccount-creds*/}}
+{{/*            items:*/}}
+{{/*              - key: sa_json*/}}
+{{/*                path: sa_credentials.json*/}}
