@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: akhq
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: akhq
+  template:
+    metadata:
+      labels:
+        app: akhq
+    spec:
+      containers:
+        - name: akhq
+          image: tchiotludo/akhq
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: akhq-config-volume
+              mountPath: /app/application.yml
+              subPath: application.yml
+      volumes:
+        - name: akhq-config-volume
+          configMap:
+            name: akhq-config

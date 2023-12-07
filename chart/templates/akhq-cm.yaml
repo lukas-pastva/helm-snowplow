@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: akhq-config
+  namespace: {{ .Release.Namespace }}
+data:
+  application.yml: |
+    akhq:
+      connections:
+        my-cluster:
+          properties:
+            bootstrap.servers: "kafka.snowplow.svc.cluster.local:9092"
