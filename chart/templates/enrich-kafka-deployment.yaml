@@ -18,7 +18,7 @@ spec:
         - name: enrich-server
           image: snowplow/snowplow-enrich-kafka:3.9.0
           command:
-            - "/home/snowplow/bin/snowplow-enrich-pubsub"
+            - "/home/snowplow/bin/snowplow-enrich-kafka"
             - "--config"
             - "/snowplow/config/config.hocon"
             - "--iglu-config"
