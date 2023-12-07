@@ -29,7 +29,7 @@ spec:
         - name: collector-server
           image: snowplow/scala-stream-collector-kafka:2.10.0
           command:
-            - "/opt/snowplow/bin/scala-stream-collector-kafka"
+            - "/home/snowplow/bin/snowplow-stream-collector"
             - "--config"
             - "/snowplow/config/config.hocon"
           imagePullPolicy: IfNotPresent
