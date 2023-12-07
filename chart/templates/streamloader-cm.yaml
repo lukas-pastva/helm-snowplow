@@ -19,7 +19,7 @@ data:
           "database": "{{ .Values.streamloaderDatabase }}"
           "username": "{{ .Values.streamloaderDatabaseMasterUser }}"
           "password": {{ .Values.streamloaderDatabaseMasterPassword }}
-          "schema": "atomic"
+          "schema": "{{ .Values.streamloaderDatabase }}"
         }
       }
     }
