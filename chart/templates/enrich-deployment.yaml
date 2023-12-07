@@ -12,7 +12,7 @@ spec:
     metadata:
       labels:
         app: enrich
-        checksum-config: {{ include (print $.Template.BasePath "/enrich-kafka-cm.yaml") . | sha256sum | trimSuffix "-" | trunc 63 }}
+        checksum-config: {{ include (print $.Template.BasePath "/enrich-cm.yaml") . | sha256sum | trimSuffix "-" | trunc 63 }}
     spec:
       containers:
         - name: enrich-server
