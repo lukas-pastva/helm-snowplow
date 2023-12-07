@@ -7,6 +7,6 @@ data:
   application.yml: |
     akhq:
       connections:
-        my-cluster:
+        snowplow:
           properties:
             bootstrap.servers: "kafka.snowplow.svc.cluster.local:9092"

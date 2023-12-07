@@ -66,10 +66,9 @@ data:
       streams {
         good = spprefix-raw-topic
         bad = spprefix-bad-1-topic
-        useIpAddressAsPartitionKey = false
         sink {
-          enabled = google-pub-sub
-          googleProjectId = "{{ .Values.yourProjectId }}"
+          host  = kafka.snowplow.svc.cluster.local
+          port = 9092
           backoffPolicy {
             minBackoff = 1000
             maxBackoff = 1000
