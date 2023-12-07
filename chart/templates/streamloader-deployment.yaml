@@ -18,7 +18,7 @@ spec:
         - name: streamloader-server
           image: snowplow/snowplow-postgres-loader:0.3.3
           command:
-            - "/home/snowplow/bin/snowplow-postgres-loader"
+            - "/opt/snowplow/bin/snowplow-postgres-loader"
             - "--config"
             - "/snowplow/config/config.hocon"
             - "--resolver"
