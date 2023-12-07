@@ -6,48 +6,20 @@ metadata:
 data:
   config.hocon: |
     {
-      "projectId": "{{ .Values.googleProjectId }}",
-      "loader": {
-        "input": {
-          "subscription": "spprefix-bq-loader-server-input"
-        },
-        "output": {
-          "good": {
-            "type": "Postgres"
-            "host": "streamloader-rw.snowplow.svc.cluster.local"
-            "database": "{{ .Values.streamloaderDatabase }}"
-            "username": "{{ .Values.streamloaderDatabaseMasterUser }}"
-            "password": {{ .Values.streamloaderDatabaseMasterPassword }}
-            "schema": "atomic"
-          },
-          "bad": {
-            "topic": "spprefix-bq-bad-rows-topic"
-          },
-          "types": {
-            "topic": "spprefix-bq-loader-server-types-topic"
-          },
-          "failedInserts": {
-            "topic": "spprefix-bq-loader-server-failed-inserts-topic"
-          }
-        }
-      },
-      "mutator": {
-        "input": {
-          "subscription": "spprefix-bq-loader-server-types"
-        },
-        "output": {
-          "good": "${loader.output.good}"
-        }
-      },
-      "repeater": {
-        "input": {
-          "subscription": "spprefix-bq-loader-server-failed-inserts"
-        },
-        "output": {
-          "good": "${loader.output.good}",
-          "deadLetters": {
-            "bucket": "gs://spprefix-bq-loader-dead-letter"
-          }
+      "input": {
+        "type": "PubSub"
+        "projectId": "my-project"
+        "subscriptionId": "my-subscription"
+      }
+
+      "output" : {
+        "good": {
+          "type": "Postgres"
+          "host": "streamloader-rw.snowplow.svc.cluster.local"
+          "database": "{{ .Values.streamloaderDatabase }}"
+          "username": "{{ .Values.streamloaderDatabaseMasterUser }}"
+          "password": {{ .Values.streamloaderDatabaseMasterPassword }}
+          "schema": "atomic"
         }
       }
     }
