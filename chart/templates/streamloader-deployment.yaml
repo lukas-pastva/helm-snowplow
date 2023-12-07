@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
         - name: streamloader-server
-          image: snowplow/snowplow-bigquery-streamloader:1.6.4
+          image: snowplow/snowplow-postgres-loader:0.3.3
           command:
-            - "/home/snowplow/bin/snowplow-bigquery-streamloader"
+            - "/home/snowplow/bin/snowplow-postgres-loader"
             - "--config"
             - "/snowplow/config/config.hocon"
             - "--resolver"

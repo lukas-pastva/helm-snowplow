@@ -1,0 +1,26 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: streamloader
+  namespace: {{ .Release.Namespace }}
+spec:
+  description: "streamloader cluster"
+  imageName: ghcr.io/cloudnative-pg/postgresql:15.3
+  instances: 1
+  primaryUpdateStrategy: unsupervised
+  storage:
+    size: 1Gi
+  monitoring:
+    enablePodMonitor: true
+  superuserSecret:
+    name: streamloader-postgre-master
+  bootstrap:
+    initdb:
+      database: {{ .Values.streamloaderDatabase }}
+      owner: {{ .Values.streamloaderDatabase }}
+      secret:
+        name: streamloader-postgre-app
+  postgresql:
+    pg_hba:
+      - local all {{ .Values.streamloaderDatabaseMasterUser }} md5
+      - local all {{ .Values.streamloaderDatabaseUser }} md5

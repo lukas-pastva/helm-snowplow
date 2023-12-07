@@ -13,8 +13,12 @@ data:
         },
         "output": {
           "good": {
-            "datasetId": "spprefix_pipeline_db",
-            "tableId": "events"
+            "type": "Postgres"
+            "host": "streamloader-rw.snowplow.svc.cluster.local"
+            "database": "{{ .Values.streamloaderDatabase }}"
+            "username": "{{ .Values.streamloaderDatabaseMasterUser }}"
+            "password": {{ .Values.streamloaderDatabaseMasterPassword }}
+            "schema": "atomic"
           },
           "bad": {
             "topic": "spprefix-bq-bad-rows-topic"
