@@ -1,5 +1,7 @@
 nameOverride: ""
 
+url: "snowplow.com"
+
 collectorServiceaccountCreds: "ZW1wdHkK"
 enrichServiceaccountCreds: "ZW1wdHkK"
 bqloaderServiceaccountCreds: "ZW1wdHkK"

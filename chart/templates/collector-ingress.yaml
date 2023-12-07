@@ -1,26 +1,21 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: snowplow-ingress
+  name: snowplow
   namespace: {{ .Release.Namespace }}
-  annotations:
-    kubernetes.io/ingress.global-static-ip-name: snowplow-ingress-ip
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    kubernetes.io/ingress.class: gce
-    acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
   tls:
     - hosts:
-        - spcollector.example.com
-      secretName: snowplow-collector-cert-secret
+        - {{ .Values.url }}
+      secretName: snowplow-cert
   rules:
-    - host: spcollector.example.com
+    - host: {{ .Values.url }}
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: collector-server-service
+                name: collector
                 port:
                   number: 8080

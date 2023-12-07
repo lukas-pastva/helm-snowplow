@@ -33,6 +33,10 @@ spec:
             - "--config"
             - "/snowplow/config/config.hocon"
           imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
           env:
             - name: JAVA_OPTS
               value: -Dorg.slf4j.simpleLogger.defaultLogLevel=info
@@ -63,3 +67,5 @@ spec:
             items:
               - key: sa_json
                 path: sa_credentials.json
+iglu-deployment:
+  yaml:
