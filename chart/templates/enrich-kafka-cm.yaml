@@ -1,0 +1,166 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: enrich-configmap
+  namespace: {{ .Release.Namespace }}
+data:
+  enrichment_campaigns.json: |
+    {
+      "schema": "iglu:com.snowplowanalytics.snowplow/campaign_attribution/jsonschema/1-0-1",
+      "data": {
+        "name": "campaign_attribution",
+        "vendor": "com.snowplowanalytics.snowplow",
+        "enabled": true,
+        "parameters": {
+          "mapping": "static",
+          "fields": {
+            "mktMedium": ["utm_medium", "medium"],
+            "mktSource": ["utm_source", "source"],
+            "mktTerm": ["utm_term", "legacy_term"],
+            "mktContent": ["utm_content"],
+            "mktCampaign": ["utm_campaign", "cid", "legacy_campaign"]
+          }
+        }
+      }
+    }
+
+  enrichment_pii.json: |
+    {
+      "schema": "iglu:com.snowplowanalytics.snowplow.enrichments/pii_enrichment_config/jsonschema/2-0-0",
+      "data": {
+        "vendor": "com.snowplowanalytics.snowplow.enrichments",
+        "name": "pii_enrichment_config",
+        "emitEvent": true,
+        "enabled": true,
+        "parameters": {
+          "pii": [
+            {
+              "pojo": {
+                "field": "user_ipaddress"
+              }
+            }
+          ],
+          "strategy": {
+            "pseudonymize": {
+              "hashFunction": "MD5",
+              "salt": "{{ .Values.enrichSalt }}"
+            }
+          }
+        }
+      }
+    }
+
+  enrichment_event_fingerprint.json: |
+    {
+      "schema": "iglu:com.snowplowanalytics.snowplow/event_fingerprint_config/jsonschema/1-0-1",
+      "data": {
+        "name": "event_fingerprint_config",
+        "vendor": "com.snowplowanalytics.snowplow",
+        "enabled": true,
+        "parameters": {
+          "excludeParameters": ["cv", "eid", "nuid", "stm"],
+          "hashAlgorithm": "MD5"
+        }
+      }
+    }
+
+  enrichment_referrer_parser.json: |
+    {
+      "schema": "iglu:com.snowplowanalytics.snowplow/referer_parser/jsonschema/2-0-0",
+      "data": {
+        "name": "referer_parser",
+        "vendor": "com.snowplowanalytics.snowplow",
+        "enabled": true,
+        "parameters": {
+          "database": "referers-latest.json",
+          "uri": "https://snowplow-hosted-assets.s3.eu-west-1.amazonaws.com/third-party/referer-parser/",
+          "internalDomains": []
+        }
+      }
+    }
+
+  enrichment_ua_parser.json: |
+    {
+      "schema": "iglu:com.snowplowanalytics.snowplow/ua_parser_config/jsonschema/1-0-1",
+      "data": {
+        "name": "ua_parser_config",
+        "vendor": "com.snowplowanalytics.snowplow",
+        "enabled": true,
+        "parameters": {
+          "uri": "https://snowplow-hosted-assets.s3.eu-west-1.amazonaws.com/third-party/ua-parser",
+          "database": "regexes-latest.yaml"
+        }
+      }
+    }
+
+  enrichment_yauaa.json: |
+    {
+      "schema": "iglu:com.snowplowanalytics.snowplow.enrichments/yauaa_enrichment_config/jsonschema/1-0-0",
+      "data": {
+        "enabled": true,
+        "vendor": "com.snowplowanalytics.snowplow.enrichments",
+        "name": "yauaa_enrichment_config"
+      }
+    }
+
+  config.hocon: |
+    {
+      "input": {
+        "topicName": "collector-payloads"
+          "bootstrapServers": "kafka.snowplow.svc.cluster.local:9092"
+      }
+
+      "output": {
+        "good": {
+          "topicName": "enriched"
+            "bootstrapServers": "kafka.snowplow.svc.cluster.local:9092"
+        }
+
+        "bad": {
+          "topicName": "bad"
+            "bootstrapServers": "kafka.snowplow.svc.cluster.local:9092"
+        }
+      }
+    }
+
+  iglu-config.json: |
+    {
+      "schema": "iglu:com.snowplowanalytics.iglu/resolver-config/jsonschema/1-0-3",
+      "data": {
+        "cacheSize": 500,
+        "cacheTtl": 600,
+        "repositories": [
+          {
+            "connection": {
+              "http": {
+                "uri": "http://iglucentral.com"
+              }
+            },
+            "name": "Iglu Central",
+            "priority": 10,
+            "vendorPrefixes": []
+          },
+          {
+            "connection": {
+              "http": {
+                "uri": "http://mirror01.iglucentral.com"
+              }
+            },
+            "name": "Iglu Central - Mirror 01",
+            "priority": 20,
+            "vendorPrefixes": []
+          },
+          {
+            "connection": {
+              "http": {
+                "apikey": "{{ .Values.igluApiKey }}",
+                "uri": "http://iglu-server-service/api"
+              }
+            },
+            "name": "Iglu Server",
+            "priority": 0,
+            "vendorPrefixes": []
+          }
+        ]
+      }
+    }
