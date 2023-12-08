@@ -11,7 +11,34 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v1.1
-    created: "2023-12-08T17:07:44.523773+01:00"
+    created: "2023-12-08T17:21:18.676821+01:00"
+    description: helm-snowplow Snowplow k8s chart
+    digest: c933fbb8dbafe25f24a7cc1d4c965f7aa8951cb2a7bff98ccbc9d8e47db5937c
+    home: https://github.com/lukas-pastva/helm-snowplow
+    keywords:
+    - argocd
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@lukaspastva.sk
+      name: lukas-pastva
+    name: helm-snowplow
+    sources:
+    - https://github.com/lukas-pastva/helm-snowplow
+    type: application
+    urls:
+    - https://lukas-pastva.github.io/helm-snowplow/helm-snowplow-0.1.57.tgz
+    version: 0.1.57
+  - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/lukas-pastva/helm-snowplow
+        - name: Upstream Project
+          url: https://github.com/lukas-pastva/helm-snowplow
+      artifacthub.io/operator: "true"
+    apiVersion: v2
+    appVersion: v1.1
+    created: "2023-12-08T17:21:18.676419+01:00"
     description: helm-snowplow Snowplow k8s chart
     digest: c8b79c097dfafaee558e0f6c3767bfd35b43274c368c1138ee7157610edc9023
     home: https://github.com/lukas-pastva/helm-snowplow
@@ -38,7 +65,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v1.1
-    created: "2023-12-08T17:07:44.523352+01:00"
+    created: "2023-12-08T17:21:18.675998+01:00"
     description: helm-snowplow Snowplow k8s chart
     digest: 3414bba982642e6598566e729ffd07753bd29279c9343a10811ae689a6af16a9
     home: https://github.com/lukas-pastva/helm-snowplow
@@ -65,7 +92,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v1.1
-    created: "2023-12-08T17:07:44.522925+01:00"
+    created: "2023-12-08T17:21:18.675538+01:00"
     description: helm-snowplow Snowplow k8s chart
     digest: 71e5e7a2cac4d2439f5719ea1d727c9b2653edcdb856c8ec5a4ca55b18ffc3f8
     home: https://github.com/lukas-pastva/helm-snowplow
@@ -82,4 +109,4 @@ entries:
     urls:
     - https://lukas-pastva.github.io/helm-snowplow/helm-snowplow-0.1.54.tgz
     version: 0.1.54
-generated: "2023-12-08T17:07:44.52228+01:00"
+generated: "2023-12-08T17:21:18.674928+01:00"

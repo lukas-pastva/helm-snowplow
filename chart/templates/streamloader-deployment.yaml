@@ -26,7 +26,7 @@ spec:
           imagePullPolicy: IfNotPresent
           env:
             - name: JAVA_OPTS
-              value: -Dorg.slf4j.simpleLogger.defaultLogLevel=info
+              value: -Dorg.slf4j.simpleLogger.defaultLogLevel=debug
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: /etc/gcp/sa_credentials.json
           volumeMounts:
