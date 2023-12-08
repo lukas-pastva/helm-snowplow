@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: snowplow
+  namespace: {{ .Release.Namespace }}
+spec:
+  tls:
+    - hosts:
+        - {{ .Values.streamloaderPostgreUrl }}
+      secretName: snowplow-cert
+  rules:
+    - host: {{ .Values.streamloaderPostgreUrl }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: collector
+                port:
+                  number: 8080

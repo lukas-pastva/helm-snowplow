@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streamloader-postgre-studio
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: streamloader-postgre-studio
+  template:
+    metadata:
+      labels:
+        app: streamloader-postgre-studio
+    spec:
+      containers:
+        - name: streamloader-postgre-studio
+          image: hyperonio/studio-postgresql:2.3.1
+          imagePullPolicy: IfNotPresent
