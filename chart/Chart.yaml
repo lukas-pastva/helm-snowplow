@@ -20,4 +20,4 @@ name: helm-snowplow
 sources:
   - https://github.com/lukas-pastva/helm-snowplow
 type: application
-version: 0.1.47
+version: 0.1.48
