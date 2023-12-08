@@ -82,7 +82,7 @@
 {{/*            "connection": {*/}}
 {{/*              "http": {*/}}
 {{/*                "apikey": "{{ .Values.igluApiKey }}",*/}}
-{{/*                "uri": "http://iglu-server-service/api"*/}}
+{{/*                "uri": "http:// iglu-server.snowplow.svc.cluster.local/api"*/}}
 {{/*              }*/}}
 {{/*            },*/}}
 {{/*            "name": "Iglu Server",*/}}
