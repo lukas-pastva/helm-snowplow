@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: akhq
+        checksum-config: {{ include (print $.Template.BasePath "/akhq-cm.yaml") . | sha256sum | trimSuffix "-" | trunc 63 }}
     spec:
       containers:
         - name: akhq
