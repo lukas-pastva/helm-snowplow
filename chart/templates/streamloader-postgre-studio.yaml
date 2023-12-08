@@ -17,3 +17,7 @@ spec:
         - name: streamloader-postgre-studio
           image: hyperonio/studio-postgresql:2.3.1
           imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
