@@ -16,6 +16,7 @@ igluDatabaseMasterUser: "postgres"
 igluDatabaseMasterPassword: "master"
 
 streamloaderDatabase: "streamloader"
+streamloaderDatabaseEmail: "email@email.com"
 streamloaderDatabaseUser: "streamloader"
 streamloaderDatabasePassword: "streamloader"
 streamloaderDatabaseMasterUser: "postgres"
