@@ -7,7 +7,6 @@ spec:
   tls:
     - hosts:
         - {{ .Values.url }}
-      secretName: snowplow-cert
   rules:
     - host: {{ .Values.url }}
       http:

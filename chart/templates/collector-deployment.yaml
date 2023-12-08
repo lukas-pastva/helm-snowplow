@@ -67,5 +67,3 @@ spec:
             items:
               - key: sa_json
                 path: sa_credentials.json
-iglu-deployment:
-  yaml:

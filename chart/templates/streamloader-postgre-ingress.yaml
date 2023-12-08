@@ -1,13 +1,12 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: snowplow
+  name: streamloader-postgre
   namespace: {{ .Release.Namespace }}
 spec:
   tls:
     - hosts:
         - {{ .Values.streamloaderPostgreUrl }}
-      secretName: snowplow-cert
   rules:
     - host: {{ .Values.streamloaderPostgreUrl }}
       http:
