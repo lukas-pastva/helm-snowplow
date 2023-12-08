@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: streamloader-postgre-studio
+  name: streamloader-postgre-pgamin
   namespace: {{ .Release.Namespace }}
 spec:
   selector:
-    app: streamloader-postgre-studio
+    app: streamloader-postgre-pgamin
   ports:
     - name: http
       protocol: TCP
