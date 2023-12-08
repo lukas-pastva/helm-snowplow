@@ -107,18 +107,18 @@ data:
     {
       "input": {
         "topicName": "collector-payloads"
-          "bootstrapServers": "kafka.snowplow.svc.cluster.local:9092"
+          "bootstrapServers": "snowplow-kafka-bootstrap.snowplow.svc.cluster.local:9092"
       }
 
       "output": {
         "good": {
           "topicName": "enriched"
-            "bootstrapServers": "kafka.snowplow.svc.cluster.local:9092"
+            "bootstrapServers": "snowplow-kafka-bootstrap.snowplow.svc.cluster.local:9092"
         }
 
         "bad": {
           "topicName": "bad"
-            "bootstrapServers": "kafka.snowplow.svc.cluster.local:9092"
+            "bootstrapServers": "snowplow-kafka-bootstrap.snowplow.svc.cluster.local:9092"
         }
       }
     }

@@ -67,9 +67,9 @@ data:
         good = spprefix-raw-topic
         bad = spprefix-bad-1-topic
         sink {
-          host  = kafka.snowplow.svc.cluster.local
+          host  = snowplow-kafka-bootstrap.snowplow.svc.cluster.local
           port = 9092
-          brokers = "kafka.snowplow.svc.cluster.local:9092"
+          brokers = "snowplow-kafka-bootstrap.snowplow.svc.cluster.local:9092"
           backoffPolicy {
             minBackoff = 1000
             maxBackoff = 1000

@@ -9,4 +9,4 @@ data:
       connections:
         snowplow:
           properties:
-            bootstrap.servers: "kafka.snowplow.svc.cluster.local:9092"
+            bootstrap.servers: "snowplow-kafka-bootstrap.snowplow.svc.cluster.local:9092"
