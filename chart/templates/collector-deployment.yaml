@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: collector
+        checksum-config: {{ include (print $.Template.BasePath "/collector-cm.yaml") . | sha256sum | trimSuffix "-" | trunc 63 }}
     spec:
       affinity:
         podAntiAffinity:
