@@ -2,6 +2,7 @@ nameOverride: ""
 
 url: "snowplow.com"
 streamloaderPostgreUrl: "postgre.snowplow.com"
+akhqUrl: "akhq.com"
 
 collectorServiceaccountCreds: "ZW1wdHkK"
 enrichServiceaccountCreds: "ZW1wdHkK"
