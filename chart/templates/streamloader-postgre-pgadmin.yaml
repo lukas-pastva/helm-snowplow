@@ -21,3 +21,8 @@ spec:
             - containerPort: 80
               name: http
               protocol: TCP
+          env:
+            - name: PGADMIN_DEFAULT_EMAIL
+              value: chart@domain.com
+            - name: PGADMIN_DEFAULT_PASSWORD
+              value: {{ .Values.streamloaderDatabaseMasterPassword }}
