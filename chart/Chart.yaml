@@ -20,4 +20,14 @@ name: helm-snowplow
 sources:
   - https://github.com/lukas-pastva/helm-snowplow
 type: application
-version: 0.1.57
+version: 0.1.58
+
+dependencies:
+  - name: strimzi-kafka-operator
+    version: "0.38.0"
+    repository: "https://strimzi.io/charts/"
+    condition: strimzi.enabled
+  - name: cloudnative-pg
+    version: "0.19.1"
+    repository: "https://cloudnative-pg.io/charts/"
+    condition: cloudnativepg.enabled

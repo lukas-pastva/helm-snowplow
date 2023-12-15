@@ -23,6 +23,9 @@ streamloaderDatabasePassword: "streamloader"
 streamloaderDatabaseMasterUser: "postgres"
 streamloaderDatabaseMasterPassword: "master"
 
-googleProjectId: "empty"
 enrichSalt: "empty"
-yourProjectId: "empty"
+
+strimzi:
+  enabled: false
+cloudnativepg:
+  enabled: false
