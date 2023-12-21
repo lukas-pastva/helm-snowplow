@@ -14,11 +14,11 @@ data:
       },
       "database": {
         "type": "postgres",
-        "host": "{{ .Values.igluDatabaseHost }}",
+        "host": "{{ .Values.iglu.database.host }}",
         "port": 5432,
-        "dbname": "{{ .Values.igluDatabase }}",
-        "username": "{{ .Values.igluDatabaseMasterUser }}",
-        "password": "{{ .Values.igluDatabaseMasterPassword }}",
+        "dbname": "{{ .Values.iglu.database.name }}",
+        "username": "{{ .Values.iglu.database.user }}",
+        "password": "{{ .Values.iglu.database.password }}",
         "driver": "org.postgresql.Driver",
         "pool": {
           "type": "hikari",
@@ -32,5 +32,5 @@ data:
       },
       "debug": false,
       "patchesAllowed": true,
-      "superApiKey": "{{ .Values.igluApiKey }}"
+      "superApiKey": "{{ .Values.iglu.apiKey }}"
     }

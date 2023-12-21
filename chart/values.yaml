@@ -1,29 +1,65 @@
 nameOverride: ""
 
 url: "snowplow.com"
-streamloaderPostgreUrl: "postgre.snowplow.com"
 akhqUrl: "akhq.com"
 
-collectorServiceaccountCreds: "ZW1wdHkK"
-enrichServiceaccountCreds: "ZW1wdHkK"
-bqloaderServiceaccountCreds: "ZW1wdHkK"
-igluApiKey: "5B2B71B8-B1D7-46DA-BA39-54D583558E23"
-igluDatabaseHost: "iglu-rw.snowplow.svc.cluster.local"
+collector:
+  serviceaccountCreds: "ZW1wdHkK"
+  kafka:
+    outTopic: collector-payloads
+  serviceType: NodePort
 
-igluDatabase: "iglu"
-igluDatabaseUser: "iglu"
-igluDatabasePassword: "iglu"
-igluDatabaseMasterUser: "postgres"
-igluDatabaseMasterPassword: "master"
+enrich:
+  serviceaccountCreds: "ZW1wdHkK"
+  salt: "empty"
 
-streamloaderDatabase: "streamloader"
-streamloaderDatabaseEmail: "email@email.com"
-streamloaderDatabaseUser: "streamloader"
-streamloaderDatabasePassword: "streamloader"
-streamloaderDatabaseMasterUser: "postgres"
-streamloaderDatabaseMasterPassword: "master"
+bqloader:
+  serviceaccountCreds: "ZW1wdHkK"
 
-enrichSalt: "empty"
+iglu:
+  apiKey: "5B2B71B8-B1D7-46DA-BA39-54D583558E23"
+  database:
+    host: "snowplow-postgres.snowplow"
+    name: "iglu"
+    user: "iglu"
+    password: "iglu"
+    masterUser: "postgres"
+    masterPassword: "postgres"
+
+streamloader:
+  database:
+    host: "snowplow-postgres.snowplow"
+    name: "streamloader_db"
+    user: "streamloader"
+    password: "streamloader"
+    masterUser: "postgres"
+    masterPassword: "postgres"
+
+postgresql:
+  enabled: true
+  nameOverride: postgres
+  auth:
+    postgresPassword: postgres
+    username: iglu
+    password: iglu
+    database: iglu
+  primary:
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 256Mi
+      requests:
+        cpu: 200m
+        memory: 128Mi
+    persistence:
+        size: 10Gi
+    service:
+      type: NodePort
+
+pgAdmin:
+  url: "postgre.snowplow.com"
+  defaultEmail: 'postgres@email.com'
+  defaultPassword: 'postgres'
 
 strimzi:
   enabled: false

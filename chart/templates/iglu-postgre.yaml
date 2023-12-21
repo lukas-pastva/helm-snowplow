@@ -1,3 +1,4 @@
+{{ if .Values.cloudnativepg }}
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
@@ -16,11 +17,12 @@ spec:
     name: iglu-postgre-master
   bootstrap:
     initdb:
-      database: {{ .Values.igluDatabase }}
-      owner: {{ .Values.igluDatabase }}
+      database: {{ .Values.iglu.database.name }}
+      owner: {{ .Values.iglu.database.user }}
       secret:
         name: iglu-postgre-app
   postgresql:
     pg_hba:
-      - local all {{ .Values.igluDatabaseMasterUser }} md5
-      - local all {{ .Values.igluDatabaseUser }} md5
+      - local all {{ .Values.iglu.database.masterUser }} md5
+      - local all {{ .Values.iglu.database.user }} md5
+{{ end }}
