@@ -6,9 +6,9 @@ metadata:
 spec:
   tls:
     - hosts:
-        - {{ .Values.streamloaderPostgreUrl }}
+        - {{ .Values.pgAdmin.url }}
   rules:
-    - host: {{ .Values.streamloaderPostgreUrl }}
+    - host: {{ .Values.pgAdmin.url }}
       http:
         paths:
           - path: /

@@ -43,7 +43,7 @@ data:
           "strategy": {
             "pseudonymize": {
               "hashFunction": "MD5",
-              "salt": "{{ .Values.enrichSalt }}"
+              "salt": "{{ .Values.enrich.salt }}"
             }
           }
         }
@@ -73,7 +73,7 @@ data:
         "enabled": true,
         "parameters": {
           "database": "referers-latest.json",
-          "uri": "https://snowplow-hosted-assets.s3.eu-west-1.amazonaws.com/third-party/referer-parser/",
+          "uri": "https://s3-eu-west-1.amazonaws.com/snowplow-hosted-assets/third-party/referer-parser/",
           "internalDomains": []
         }
       }
@@ -87,7 +87,7 @@ data:
         "vendor": "com.snowplowanalytics.snowplow",
         "enabled": true,
         "parameters": {
-          "uri": "https://snowplow-hosted-assets.s3.eu-west-1.amazonaws.com/third-party/ua-parser",
+          "uri": "https://s3-eu-west-1.amazonaws.com/snowplow-hosted-assets/third-party/ua-parser",
           "database": "regexes-latest.yaml"
         }
       }
@@ -153,8 +153,8 @@ data:
           {
             "connection": {
               "http": {
-                "apikey": "{{ .Values.igluApiKey }}",
-                "uri": "http://iglu-server.snowplow.svc.cluster.local/api"
+                "apikey": "{{ .Values.iglu.apiKey }}",
+                "uri": "http://iglu-server.{{ .Release.Namespace }}:8080/api"
               }
             },
             "name": "Iglu Server",

@@ -23,6 +23,6 @@ spec:
               protocol: TCP
           env:
             - name: PGADMIN_DEFAULT_EMAIL
-              value: {{ .Values.streamloaderDatabaseEmail }}
+              value: {{ .Values.pgAdmin.defaultEmail }}
             - name: PGADMIN_DEFAULT_PASSWORD
-              value: {{ .Values.streamloaderDatabaseMasterPassword }}
+              value: {{ .Values.pgAdmin.defaultPassword }}

@@ -64,7 +64,7 @@ data:
         enabled = false
       }
       streams {
-        good = spprefix-raw-topic
+        good = {{ .Values.collector.kafka.outTopic }}
         bad = spprefix-bad-1-topic
         sink {
           host  = snowplow-kafka-bootstrap.snowplow.svc.cluster.local
