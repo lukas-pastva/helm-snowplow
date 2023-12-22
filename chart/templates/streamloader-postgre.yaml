@@ -1,4 +1,4 @@
-{{ if .Values.cloudnativepg }}
+{{ if .Values.cloudnativepg.enabled }}
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
