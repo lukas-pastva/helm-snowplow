@@ -1,0 +1,12 @@
+dependencies:
+- name: strimzi-kafka-operator
+  repository: https://strimzi.io/charts/
+  version: 0.38.0
+- name: cloudnative-pg
+  repository: https://cloudnative-pg.io/charts/
+  version: 0.19.1
+- name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 11.9.13
+digest: sha256:b528c1a78e223fd998a4e54db3745068c6fe5c74f98804db41f63a5d70d62622
+generated: "2023-12-20T12:15:59.693959+03:00"
